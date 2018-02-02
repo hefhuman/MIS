@@ -14,7 +14,7 @@ class Sys extends Controller {
 			$data = [
 				'year_start' => trim($_POST['year_start']),
 				'year_end' => trim($_POST['year_end']),
-				'status' => 'Inactive'
+				'switch' => 'Inactive'
 			];
 
 			if($this->syModel->add($data)){

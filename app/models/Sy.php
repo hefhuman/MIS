@@ -9,12 +9,12 @@ public function __construct(){
 
 
 public function add($data){
-	$this->db->query('INSERT INTO sy(year_start, year_end, status) VALUES(:year_start, :year_end, :status)');
+	$this->db->query('INSERT INTO sys(year_start, year_end, switch) VALUES(:year_start, :year_end, :switch)');
 
 	//Bind Values
 	$this->db->bind(':year_start', $data['year_start']);
 	$this->db->bind(':year_end', $data['year_end']);
-	$this->db->bind(':status', $data['status']);
+	$this->db->bind(':switch', $data['switch']);
 
 	if($this->db->execute()){
 		return true;

@@ -9,7 +9,7 @@ public function __construct(){
 
 
 public function add($data){
-	$this->db->query('INSERT INTO personnel(id, first_name, middle_name, last_name, account_type, switch) VALUES(:id, :first_name, :middle_name, :last_name, :account_type, :switch)');
+	$this->db->query('INSERT INTO personnels(id, first_name, middle_name, last_name, account_type, switch) VALUES(:id, :first_name, :middle_name, :last_name, :account_type, :switch)');
 
 	//Bind Values
 	$this->db->bind(':id', $data['id']);

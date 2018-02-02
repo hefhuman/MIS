@@ -9,7 +9,7 @@ public function __construct(){
 
 
 public function add($data){
-	$this->db->query('INSERT INTO account_type(account_type, switch) VALUES(:account_type, :switch)');
+	$this->db->query('INSERT INTO account_types(account_type, switch) VALUES(:account_type, :switch)');
 
 	//Bind Values
 	$this->db->bind(':account_type', $data['account_type']);

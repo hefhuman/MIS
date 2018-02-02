@@ -21,10 +21,10 @@ class Personnels extends Controller {
 			if($this->personnelModel->add($data)){
 				die('Added');
 			} else {
-				$this->view('Personnels/add');
+				$this->view('personnels/add');
 			}
 		} else {
-			$this->view('Personnels/add');
+			$this->view('personnels/add');
 		}
 	}
 }

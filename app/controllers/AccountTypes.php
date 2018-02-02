@@ -22,7 +22,7 @@ class AccountTypes extends Controller {
 			}
 
 		}else {
-			$this->view('accountTypes/addAccountType');
+			$this->view('accounttypes/addAccountType');
 		}
 	}
 }
