@@ -23,6 +23,9 @@
   - List of Users
 
 **Todo List**
-+ :pushpin: Account type Input box in add personnel must be dropbox and data must be from database
-+ :pushpin: Account type Input box in add personnel must be dropbox and data must be from database
++ :pushpin: Account type Input box in add personnel must be dropbox and data must be from database.
++ :pushpin: Account type Input box in add user must be same of personnels account type dropbox and data must be from database.
++ :pushpin: Add, Update, Disable must be in the view datas function.
+
+Other update soon every after defend!
 
