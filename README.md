@@ -6,4 +6,4 @@
 
 :sparkler: :sparkler: Functions :sparkler: :sparkler:
 
-*Add Function
+* Add Function
