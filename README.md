@@ -7,12 +7,12 @@
 :sparkler: :sparkler: Functions :sparkler: :sparkler:
 
 + Add Function
-  - Add Account Type
-  - Add Department
-  - Add Facilities
-  - Add Personnel
-  - Add SY (School Year)
-  - Add Users
+  - Add Account Type :heavy_check_mark:
+  - Add Department :heavy_check_mark:
+  - Add Facilities :heavy_check_mark:
+  - Add Personnel :heavy_check_mark:
+  - Add SY (School Year) :heavy_check_mark:
+  - Add Users :heavy_check_mark: :heavy_exclamation_mark: (Must be disable if no personnels added)
 
 + View Datas
   - List of Account Type
@@ -21,3 +21,5 @@
   - List of Personnel
   - List of SY
   - List of Users
+
+:pushpin:
