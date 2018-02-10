@@ -5,3 +5,5 @@
 **4th Year Thesis Project**
 
 :sparkler: :sparkler: Functions :sparkler: :sparkler:
+
+*Add Function
