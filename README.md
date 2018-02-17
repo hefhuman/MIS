@@ -30,4 +30,4 @@
 Other update soon every after defend!
 
 **Used Tools**
-+ https://jsfiddle.net
++ https://jsfiddle.net - i used it for testing with html, javascript, css
