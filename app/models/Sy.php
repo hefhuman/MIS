@@ -22,5 +22,15 @@ public function add($data){
 		return false;
 	}
 }
+
+public function getSchoolYear(){
+
+	$this->db->query('SELECT * FROM sys');
+
+	$results = $this->db->resultSet();
+
+	return $results;
+
+}
 }
  ?>

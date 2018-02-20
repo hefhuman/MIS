@@ -22,5 +22,14 @@ public function add($data){
 		return false;
 	}
 }
+
+public function getAccountType(){
+
+	$this->db->query('SELECT * FROM account_types');
+
+	$results = $this->db->resultSet();
+
+	return $results;
+}
 }
  ?>

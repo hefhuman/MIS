@@ -24,7 +24,13 @@ class Sys extends Controller {
 			}
 
 		}else {
-			$this->view('sys/addSchoolYear');
+
+			$sy = $this->syModel->getSchoolYear();
+			$data = [
+				'sy' => $sy
+			];
+
+			$this->view('sys/addSchoolYear', $data);
 		}
 	}
 }

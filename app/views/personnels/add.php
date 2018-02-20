@@ -6,7 +6,11 @@ Add Users
 		<input type="text" name="first_name" required placeholder="First Name">
 		<input type="text" name="middle_name" required placeholder="Middle Name">
 		<input type="text" name="last_name" required placeholder="Last Name">
-		<input type="text" name="account_type" required placeholder="Account type">
+		<select name="account_type" id="">
+			<?php foreach ($data['account_type'] as $accountType): ?> 
+				<option value="<?php echo $accountType->account_type; ?>"><?php echo $accountType->account_type; ?></option>
+			<?php endforeach; ?>
+		</select>
 		<button type="submit">Add</button>
 	</form>
 

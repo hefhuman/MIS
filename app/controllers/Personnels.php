@@ -3,12 +3,15 @@ class Personnels extends Controller {
 
 	public function __construct(){
 		$this->personnelModel = $this->model('Personnel');
+		$this->accountTypeModel = $this->model('accountType');
 	}
 
 	public function add(){
 		if($_SERVER['REQUEST_METHOD'] == 'POST'){
 			//Sanitize post array
 			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+			
 
 			$data = [
 				'id' => trim($_POST['id']),
@@ -24,7 +27,12 @@ class Personnels extends Controller {
 				$this->view('personnels/add');
 			}
 		} else {
-			$this->view('personnels/add');
+			$at = $this->accountTypeModel->getAccountType();
+			$data = [
+				'account_type' => $at
+			];
+
+			$this->view('personnels/add',$data);
 		}
 	}
 }
