@@ -22,7 +22,7 @@
 <ul>
 	<li class="menu">View Datas
 <ul class="item">
-  <li class="menu1Item"><a href="<?php echo URLROOT; ?>/sys/add">View SY</a></li>
+  <li class="menu1Item"><a href="<?php echo URLROOT; ?>/sys/sylist">View SY</a></li>
   <li class="menu1Item"><a href="<?php echo URLROOT; ?>/AccountTypes/add">View Account Types</a></li>
   <li class="menu1Item"><a href="<?php echo URLROOT; ?>/facilities/add">View Facilities</a></li>
    <li class="menu1Item"><a href="<?php echo URLROOT; ?>/users/add">View Users</a></li>

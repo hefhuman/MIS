@@ -32,5 +32,73 @@ public function getSchoolYear(){
 	return $results;
 
 }
+
+public function getSys(){
+	 $this->db->query('SELECT * FROM sys');
+
+    $results = $this->db->resultSet();
+
+    return $results;
+}
+
+public function hasActive(){
+	$this->db->query('SELECT * FROM sys WHERE switch= "Active"');
+
+	$row = $this->db->single();
+
+	return $row;
+}
+
+public function isActiveById($id){
+	$this->db->query('SELECT * FROM sys WHERE switch = :switch AND id = :id');
+
+	//Bind values
+    $this->db->bind(':switch', 'Active');
+    $this->db->bind(':id', $id);
+
+	$row = $this->db->single();
+
+	return $row;
+}
+
+public function activateSy($id){
+	 $this->db->query('UPDATE sys SET switch=:switch WHERE id=:id');
+    //Bind values
+    $this->db->bind(':switch', 'Active');
+    $this->db->bind(':id', $id);
+    //Execute statement or query
+    if($this->db->execute()){
+      return true;
+    } else {
+      return false;
+    }
+}
+
+public function disableSy($id){
+	 $this->db->query('UPDATE sys SET switch=:switch WHERE id=:id');
+    //Bind values
+    $this->db->bind(':switch', 'Inactive');
+    $this->db->bind(':id', $id);
+    //Execute statement or query
+    if($this->db->execute()){
+      return true;
+    } else {
+      return false;
+    }
+}
+
+public function updateSy($data){
+	$this->db->query('UPDATE sys SET year_start=:year_start, year_end=:year_end WHERE id=:id');
+    //Bind values
+    $this->db->bind(':year_start', $data['year_start']);
+    $this->db->bind(':year_end', $data['year_end']);
+    $this->db->bind(':id', $data['id']);
+    //Execute statement or query
+    if($this->db->execute()){
+      return true;
+    } else {
+      return false;
+    }
+}
 }
  ?>
