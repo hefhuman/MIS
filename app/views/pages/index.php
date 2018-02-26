@@ -23,11 +23,11 @@
 	<li class="menu">View Datas
 <ul class="item">
   <li class="menu1Item"><a href="<?php echo URLROOT; ?>/sys/sylist">View SY</a></li>
-  <li class="menu1Item"><a href="<?php echo URLROOT; ?>/AccountTypes/add">View Account Types</a></li>
-  <li class="menu1Item"><a href="<?php echo URLROOT; ?>/facilities/add">View Facilities</a></li>
-   <li class="menu1Item"><a href="<?php echo URLROOT; ?>/users/add">View Users</a></li>
-   <li class="menu1Item"><a href="<?php echo URLROOT; ?>/departments/add">View Departments</a></li>
-   <li class="menu1Item"><a href="<?php echo URLROOT; ?>/personnels/add">View Personnels</a></li>
+  <li class="menu1Item"><a href="<?php echo URLROOT; ?>/AccountTypes/atlist">View Account Types</a></li>
+  <li class="menu1Item"><a href="<?php echo URLROOT; ?>/facilities/facillist">View Facilities</a></li>
+   <li class="menu1Item"><a href="<?php echo URLROOT; ?>/users/userlist">View Users</a></li>
+   <li class="menu1Item"><a href="<?php echo URLROOT; ?>/departments/deptlist">View Departments</a></li>
+   <li class="menu1Item"><a href="<?php echo URLROOT; ?>/personnels/personnellist">View Personnels</a></li>
 </ul>
 	</li>
 </ul>

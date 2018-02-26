@@ -3,9 +3,9 @@
 Add Users
 <form method="post" action="<?php echo URLROOT; ?>/personnels/add">
 	    <input type="text" name="id" required placeholder="id">
-		<input type="text" name="first_name" required placeholder="First Name">
-		<input type="text" name="middle_name" required placeholder="Middle Name">
-		<input type="text" name="last_name" required placeholder="Last Name">
+		<input type="text" name="first_name" required placeholder="First Name" style="text-transform: capitalize;">
+		<input type="text" name="middle_name" required placeholder="Middle Name" maxlength="1" style="text-transform: capitalize;">
+		<input type="text" name="last_name" required placeholder="Last Name" style="text-transform: capitalize;">
 		<select name="account_type" id="">
 			<?php foreach ($data['account_type'] as $accountType): ?> 
 				<option value="<?php echo $accountType->account_type; ?>"><?php echo $accountType->account_type; ?></option>

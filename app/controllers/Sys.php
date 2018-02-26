@@ -25,7 +25,8 @@ class Sys extends Controller {
 
 		}else {
 
-			$sy = $this->syModel->getSchoolYear();
+			$sy = $this->syModel->getSys();
+
 			$data = [
 				'sy' => $sy
 			];
@@ -90,9 +91,11 @@ class Sys extends Controller {
 
 		}else {
 
-			$sy = $this->syModel->getSchoolYear();
+			$sy = $this->syModel->getSys();
+			$sysById = $this->syModel->getSysById($id);
 			$data = [
 				'sy' => $sy,
+				'syById' => $sysById,
 				'id' => $id
 			];
 

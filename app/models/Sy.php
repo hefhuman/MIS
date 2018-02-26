@@ -23,11 +23,13 @@ public function add($data){
 	}
 }
 
-public function getSchoolYear(){
+public function getSysById($id){
 
-	$this->db->query('SELECT * FROM sys');
+	$this->db->query('SELECT * FROM sys WHERE id=:id');
 
-	$results = $this->db->resultSet();
+    $this->db->bind(':id', $id);
+
+	$results = $this->db->single();
 
 	return $results;
 

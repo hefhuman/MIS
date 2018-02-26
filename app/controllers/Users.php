@@ -4,6 +4,7 @@ class Users extends Controller {
 
 	public function __construct(){
 		$this->userModel = $this->model('User');
+		$this->accountTypeModel = $this->model('accountType');
 	}
 
 	public function login(){
@@ -42,7 +43,9 @@ class Users extends Controller {
 
 					//Create Session
 					$this->createUserSession($loggedInUser);
+
 					$this->view('pages/index');
+					
 				}else{
 					//Load with errors
 					$data['password_err'] = 'Password Incorrect';
@@ -61,7 +64,7 @@ class Users extends Controller {
 				'username_err' => '',
 				'password_err' => ''
 			];
-			$this->view('users/login', $data);
+			$this->view('users/login');
 		}
 	}
 
@@ -80,7 +83,7 @@ class Users extends Controller {
 	}
 
 
-	public function add(){
+	public function add($id){
 		if($_SERVER['REQUEST_METHOD'] == 'POST'){
 			//Sanitize post array
 			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -100,13 +103,91 @@ class Users extends Controller {
         		die('added');
         	}
         } else {
-        	$this->view('users/add');
+
+        	$at = $this->accountTypeModel->getAccountType();
+
+			$data = [
+				'id' => $id,
+				'account_type' => $at,
+			];
+
+        	$this->view('users/add',$data);
         }
 
 		} else{
-			$this->view('users/add');
+			$at = $this->accountTypeModel->getAccountType();
+
+			$data = [
+				'id' => $id,
+				'account_type' => $at,
+			];
+
+        	$this->view('users/add',$data);
 		}
 	}
+
+	public function userList(){
+
+		$users = $this->userModel->getUsers();
+
+		$data = [
+			'users' => $users
+		];
+
+
+		$this->view('users/userlist', $data);
+	}
+
+	public function disable($id){
+		if($this->userModel->disableUser($id)){
+			redirect('users/userlist');
+		}else {
+			die("Cannot Disable");
+		}
+	}
+
+	public function enable($id){
+		if($this->userModel->activateUser($id)){
+			redirect('users/userlist');
+		}else {
+			die("Cannot Activate");
+		}
+	}
+
+	public function update($id){
+		if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+			//Sanitize post array
+      $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+      $data = [
+      			'id' => $id,
+				'username' => trim($_POST['username']),
+				'password' => trim($_POST['password']),
+				'account_type' => trim($_POST['account_type'])
+			];
+
+			if($this->userModel->updateUser($data)){
+				redirect('users/userlist');
+			}else {
+				$this->view('users/updateuser');
+			}
+
+		}else {
+
+			$at = $this->accountTypeModel->getAccountType();
+
+			$getUsrById = $this->userModel->getUserById($id);
+
+			$data = [
+				'account_type' => $at,
+				'id' => $id,
+				'users' => $getUsrById
+			];
+
+			$this->view('users/updateuser', $data);
+		}
+		}
 }
 
 ?>
