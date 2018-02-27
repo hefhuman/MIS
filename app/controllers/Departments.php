@@ -12,7 +12,8 @@ class Departments extends Controller {
 			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
 			$data = [
-				'department' => trim($_POST['department'])
+				'department_code' => trim($_POST['department_code']),
+				'department_name' => trim($_POST['department_name'])
 			];
 
 			if($this->departmentModel->add($data)){
@@ -61,7 +62,8 @@ class Departments extends Controller {
       $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
       $data = [
-				'department' => trim($_POST['department']),
+				'department_code' => trim($_POST['department_code']),
+				'department_name' => trim($_POST['department_name']),
 				'id' => $id
 			];
 

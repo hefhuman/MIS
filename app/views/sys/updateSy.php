@@ -30,6 +30,33 @@ Quantity (between 1 and 5):
 
   <input readonly type="text" name="year_end" id="year_end" value="<?php echo $ending + 2001; ?>">
 
+  <select name="semester">
+
+    <?php if($data['syById']->semester == 1): ?>
+
+    <option selected value="1" name="First Semester">First Semester</option>
+    <option value="2" name="Second Semester">Second Semester</option>
+    <option value="3" name="Summer">Summer</option>
+
+
+  <?php elseif($data['syById']->semester == 2): ?>
+
+    <option value="1" name="First Semester">First Semester</option>
+    <option selected value="2" name="Second Semester">Second Semester</option>
+    <option value="3" name="Summer">Summer</option>
+
+  <?php elseif($data['syById']->semester == 3): ?>
+
+    <option value="1" name="First Semester">First Semester</option>
+    <option value="2" name="Second Semester">Second Semester</option>
+    <option selected value="3" name="Summer">Summer</option>
+
+  <?php endif; ?>
+
+  </select>
+
+
+
 
 <button type="submit">Update</button>
 </form>

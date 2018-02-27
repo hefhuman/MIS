@@ -10,6 +10,26 @@ body {
   margin-top: 10%;
 }
 
+.tbl {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+}
+
+.tbl td, .tbl th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.tbl tr:hover {background-color: #ddd;}
+
+.tbl th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
 /*CSS for the navigation bar vertical*/
 ul {
     list-style-type: none;

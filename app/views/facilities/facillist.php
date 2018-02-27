@@ -14,7 +14,7 @@ List of Facilities
   <?php foreach($data['facilities'] as $facil): ?>
     <tr>
       <td><?php echo $facil->type; ?></td>
-      <td><?php echo $facil->discription; ?></td>
+      <td><?php echo $facil->description; ?></td>
       <td><?php echo $facil->facil_name; ?></td>
       <td><?php echo $facil->switch; ?></td>
       <td>

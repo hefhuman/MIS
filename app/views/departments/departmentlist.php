@@ -4,14 +4,16 @@ List of Departments
 
 <table class="tbl">
   <tr>
-    <th>Department</th>
+    <th>Department Code</th>
+    <th>Department Name</th>
     <th>Status</th> 
     <th>Actions</th>
   </tr>
   
   <?php foreach($data['department'] as $dept): ?>
     <tr>
-      <td><?php echo $dept->department; ?></td>
+      <td><?php echo $dept->DepartmentCode; ?></td>
+      <td><?php echo $dept->DepartmentName; ?></td>
       <td><?php echo $dept->switch; ?></td>
       <td>
         <div class="btn-group dropright">

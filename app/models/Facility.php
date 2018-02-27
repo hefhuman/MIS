@@ -9,12 +9,12 @@ public function __construct(){
 
 
 public function add($data){
-	$this->db->query('INSERT INTO facilities(type, discription, facil_name, switch) VALUES(:type, :discription, :facil_name, :switch)');
+	$this->db->query('INSERT INTO facilities(type, description, facil_name, switch) VALUES(:type, :description, :facil_name, :switch)');
 
 	//Bind Values
-	$this->db->bind(':type', $data['type']);
-	$this->db->bind(':discription', $data['discription']);
-	$this->db->bind(':facil_name', $data['facil_name']);
+	$this->db->bind(':type', ucwords($data['type']));
+	$this->db->bind(':description', ucwords($data['description']));
+	$this->db->bind(':facil_name', ucwords($data['facil_name']));
 	$this->db->bind(':switch', 'Active');
 
 
@@ -43,6 +43,19 @@ public function getFacils(){
     return $results;
 }
 
+public function activateFacil($id){
+     $this->db->query('UPDATE facilities SET switch=:switch WHERE id=:id');
+    //Bind values
+    $this->db->bind(':switch', 'Active');
+    $this->db->bind(':id', $id);
+    //Execute statement or query
+    if($this->db->execute()){
+      return true;
+    } else {
+      return false;
+    }
+}
+
 public function disableFacil($id){
 	 $this->db->query('UPDATE facilities SET switch=:switch WHERE id=:id');
     //Bind values
@@ -57,11 +70,11 @@ public function disableFacil($id){
 }
 
 public function updateFacil($data){
-	$this->db->query('UPDATE facilities SET type=:type, discription=:discription, facil_name=:facil_name WHERE id=:id');
+	$this->db->query('UPDATE facilities SET type=:type, description=:description, facil_name=:facil_name WHERE id=:id');
     //Bind values
-    $this->db->bind(':type', $data['type']);
-    $this->db->bind(':discription', $data['discription']);
-    $this->db->bind(':facil_name', $data['facil_name']);
+    $this->db->bind(':type', ucwords($data['type']));
+    $this->db->bind(':description', ucwords($data['description']));
+    $this->db->bind(':facil_name', ucwords($data['facil_name']));
     $this->db->bind(':id', $data['id']);
     //Execute statement or query
     if($this->db->execute()){

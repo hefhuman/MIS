@@ -4,6 +4,7 @@ class Personnels extends Controller {
 	public function __construct(){
 		$this->personnelModel = $this->model('Personnel');
 		$this->accountTypeModel = $this->model('accountType');
+		$this->userModel = $this->model('User');
 	}
 
 	public function add(){
@@ -38,10 +39,14 @@ class Personnels extends Controller {
 
 	public function personnelList(){
 
+
 		$personnel = $this->personnelModel->getPersonnel();
 
+		$user = $this->userModel->getUsers();
+
 		$data = [
-			'personnel' => $personnel
+			'personnel' => $personnel,
+			'user' => $user
 		];
 
 
@@ -84,7 +89,7 @@ class Personnels extends Controller {
 				$this->view('personnels/updatepersonnel');
 			}
 
-		}else {
+		}else {	
 
 			$at = $this->accountTypeModel->getAccountType();
 

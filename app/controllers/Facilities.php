@@ -13,7 +13,7 @@ class Facilities extends Controller {
 
 			$data = [
 				'type' => trim($_POST['type']),
-				'discription' => trim($_POST['discription']),
+				'description' => trim($_POST['description']),
 				'facil_name' => trim($_POST['facil_name'])
 			];
 
@@ -66,7 +66,7 @@ class Facilities extends Controller {
 
       $data = [
 				'type' => trim($_POST['type']),
-				'discription' => trim($_POST['discription']),
+				'description' => trim($_POST['description']),
 				'facil_name' => trim($_POST['facil_name']),
 				'id' => $id
 			];

@@ -5,6 +5,7 @@ class Users extends Controller {
 	public function __construct(){
 		$this->userModel = $this->model('User');
 		$this->accountTypeModel = $this->model('accountType');
+		$this->personnelModel = $this->model('Personnel');
 	}
 
 	public function login(){
@@ -100,6 +101,9 @@ class Users extends Controller {
 
         	//Add User
         	if($this->userModel->add($data)){
+
+        		$this->personnelModel->accountCreated($data['id']);
+
         		die('added');
         	}
         } else {

@@ -15,7 +15,17 @@ Quantity (between 1 and 5):
   	<option value="<?php echo $i + 2000; ?>"><?php echo $i + 2000; ?></option>
   <?php endfor; ?>
   </select>
+
 <input readonly type="text" name="year_end" id="year_end">
+
+  <select name="semester">
+
+    <option value="1" name="First Semester">First Semester</option>
+    <option value="2" name="Second Semester">Second Semester</option>
+    <option value="3" name="Summer">Summer</option>
+
+  </select>
+
 <button type="submit">Add</button>
 </form>
 

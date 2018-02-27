@@ -5,6 +5,7 @@ List of School Year
 <table class="tbl">
   <tr>
     <th>School Year</th>
+    <th>Semester</th>
     <th>Status</th> 
     <th>Actions</th>
   </tr>
@@ -12,6 +13,12 @@ List of School Year
   <?php foreach($data['sys'] as $sy): ?>
     <tr>
       <td><?php echo $sy->year_start . '-' . $sy->year_end; ?></td>
+      <td>
+        <?php if($sy->semester == 1): echo 'First Semester' ?>
+        <?php elseif($sy->semester == 2): echo 'Second Semester' ?>
+        <?php elseif($sy->semester == 3): echo 'Summer' ?>
+        <?php endif; ?>
+      </td>
       <td><?php echo $sy->switch; ?></td>
       <td>
         <div class="btn-group dropright">

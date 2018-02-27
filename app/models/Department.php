@@ -9,10 +9,11 @@ public function __construct(){
 
 
 public function add($data){
-	$this->db->query('INSERT INTO departments(department, switch) VALUES(:department, :switch)');
+	$this->db->query('INSERT INTO departments(DepartmentCode, DepartmentName, switch) VALUES(:DepartmentCode, :DepartmentName, :switch)');
 
 	//Bind Values
-	$this->db->bind(':department', $data['department']);
+	$this->db->bind(':DepartmentCode', strtoupper($data['department_code']));
+  $this->db->bind(':DepartmentName', ucwords($data['department_name']));
 	$this->db->bind(':switch', 'Active');
 
 
@@ -68,9 +69,10 @@ public function activateDept($id){
 }
 
 public function updateDept($data){
-	$this->db->query('UPDATE departments SET department=:department WHERE id=:id');
+	$this->db->query('UPDATE departments SET DepartmentCode=:DepartmentCode, DepartmentName=:DepartmentName WHERE id=:id');
     //Bind values
-    $this->db->bind(':department', $data['department']);
+    $this->db->bind(':DepartmentCode', strtoupper($data['department_code']));
+    $this->db->bind(':DepartmentName', strtoupper($data['department_name']));
     $this->db->bind(':id', $data['id']);
     //Execute statement or query
     if($this->db->execute()){

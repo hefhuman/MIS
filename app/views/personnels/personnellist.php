@@ -13,7 +13,7 @@ List of Personnel
   
   <?php foreach($data['personnel'] as $prsnnl): ?>
     <tr>
-      <td><?php echo $prsnnl->id; ?></td>
+      <td><?php echo $prsnnl->PersonnelID; ?></td>
       <td><?php echo $prsnnl->last_name . ', ' . $prsnnl->first_name . ' ' . $prsnnl->middle_name; ?></td>
       <td><?php echo $prsnnl->account_type; ?></td>
       <td><?php echo $prsnnl->switch; ?></td>
@@ -28,12 +28,12 @@ List of Personnel
   <?php if($prsnnl->switch == 'Inactive'): ?>
 
 
-   <a class="dropdown-item" href="<?php echo URLROOT;?>/personnels/enable/<?php echo $prsnnl->id ?>">Enable</a>
+   <a class="dropdown-item" href="<?php echo URLROOT;?>/personnels/enable/<?php echo $prsnnl->PersonnelID ?>">Enable</a>
 
 <!-- if status is inactive then it change the text -->
   <?php else: ?>
 
-  <a class="dropdown-item" href="<?php echo URLROOT;?>/personnels/disable/<?php echo $prsnnl->id ?>">Disable</a>
+  <a class="dropdown-item" href="<?php echo URLROOT;?>/personnels/disable/<?php echo $prsnnl->PersonnelID ?>">Disable</a>
 
 <!-- if status is inactive then it change the text -->
   <?php endif; ?>
@@ -42,18 +42,21 @@ List of Personnel
 <!-- if status is active then update will be disabled -->
   <?php if($prsnnl->switch == "Active"): ?>
 
-    <a style="pointer-events: none;" class="dropdown-item" href="<?php echo URLROOT;?>/personnels/update/<?php echo $prsnnl->id ?>">Update</a>
+    <a style="pointer-events: none;" class="dropdown-item" href="<?php echo URLROOT;?>/personnels/update/<?php echo $prsnnl->PersonnelID ?>">Update</a>
 
 <!-- if status is active then update will be disabled -->
   <?php else : ?>
 
-   <a class="dropdown-item" href="<?php echo URLROOT;?>/personnels/update/<?php echo $prsnnl->id ?>">Update</a>
+   <a class="dropdown-item" href="<?php echo URLROOT;?>/personnels/update/<?php echo $prsnnl->PersonnelID ?>">Update</a>
 
 <!-- if status is active then update will be disabled -->
  <?php endif; ?>
 
-    <a class="dropdown-item" href="<?php echo URLROOT;?>/users/add/<?php echo $prsnnl->id ?>">Create MIS Account</a>
+ <?php if($prsnnl->hasAccount != 'Yes'): ?>
 
+  <a class="dropdown-item" href="<?php echo URLROOT;?>/users/add/<?php echo $prsnnl->PersonnelID ?>">Create MIS Account</a>
+
+<?php endif; ?>
 
   </div>
 </div>

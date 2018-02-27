@@ -14,14 +14,20 @@ class Sys extends Controller {
 			$data = [
 				'year_start' => trim($_POST['year_start']),
 				'year_end' => trim($_POST['year_end']),
+				'semester' => trim($_POST['semester']),
 				'switch' => 'Inactive'
 			];
+
+			if(!$this->syModel->chckDuplicate($data['year_start'])){
 
 			if($this->syModel->add($data)){
 				die('added');
 			}else {
 				$this->view('sys/addSchoolYear');
 			}
+		} else {
+			die('School Year Already Exist');
+		}
 
 		}else {
 
@@ -80,6 +86,7 @@ class Sys extends Controller {
       			'id' => $id,
 				'year_start' => trim($_POST['year_start']),
 				'year_end' => trim($_POST['year_end']),
+				'semester' => trim($_POST['semester']),
 				'switch' => 'Inactive'
 			];
 

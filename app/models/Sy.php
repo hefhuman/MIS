@@ -9,11 +9,12 @@ public function __construct(){
 
 
 public function add($data){
-	$this->db->query('INSERT INTO sys(year_start, year_end, switch) VALUES(:year_start, :year_end, :switch)');
+	$this->db->query('INSERT INTO sys(year_start, year_end, semester, switch) VALUES(:year_start, :year_end, :semester, :switch)');
 
 	//Bind Values
 	$this->db->bind(':year_start', $data['year_start']);
 	$this->db->bind(':year_end', $data['year_end']);
+    $this->db->bind(':semester', $data['semester']);
 	$this->db->bind(':switch', $data['switch']);
 
 	if($this->db->execute()){
@@ -49,6 +50,18 @@ public function hasActive(){
 	$row = $this->db->single();
 
 	return $row;
+}
+
+public function chckDuplicate($year_start){
+    $this->db->query('SELECT * FROM sys WHERE year_start=:year_start');
+
+    $this->db->bind(':year_start' , $year_start);
+
+    if($this->db->single()){
+        return true;
+    } else {
+        return false;
+    }
 }
 
 public function isActiveById($id){
@@ -90,10 +103,11 @@ public function disableSy($id){
 }
 
 public function updateSy($data){
-	$this->db->query('UPDATE sys SET year_start=:year_start, year_end=:year_end WHERE id=:id');
+	$this->db->query('UPDATE sys SET year_start=:year_start, year_end=:year_end, semester=:semester WHERE id=:id');
     //Bind values
     $this->db->bind(':year_start', $data['year_start']);
     $this->db->bind(':year_end', $data['year_end']);
+    $this->db->bind(':semester', $data['semester']);
     $this->db->bind(':id', $data['id']);
     //Execute statement or query
     if($this->db->execute()){
