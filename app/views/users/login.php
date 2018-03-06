@@ -1,7 +1,19 @@
 <?php if(isset($_SESSION['user_id'])): ?>
 <?php $this->view('pages/index'); ?>
 <?php else: ?>
-<?php require APPROOT . '/views/inc/header.php'; ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/font-awesome.min.css">
+  <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/style.css">
+  <title><?php echo SITENAME;?></title>
+  
+</head>
+<body >
 
 <div class="container">
 
@@ -36,5 +48,10 @@
 
 </div>
 
-<?php require APPROOT . '/views/inc/footer.php'; ?>
+<script src="<?php echo URLROOT;?>/public/js/jquery.js"></script>
+<script src="<?php echo URLROOT;?>/public/js/popper.min.js"></script>
+<script src="<?php echo URLROOT;?>/public/js/bootstrap.js"></script>
+<script src="<?php echo URLROOT;?>/public/js/main.js"></script>
+</body>
+</html>
 <?php endif; ?>

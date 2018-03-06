@@ -8,6 +8,10 @@ class Users extends Controller {
 		$this->personnelModel = $this->model('Personnel');
 	}
 
+	public function a(){
+		$this->view('a');
+	}
+
 	public function login(){
 		//Check for post
 		if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -104,7 +108,7 @@ class Users extends Controller {
 
         		$this->personnelModel->accountCreated($data['id']);
 
-        		die('added');
+        		redirect('users/userList');
         	}
         } else {
 

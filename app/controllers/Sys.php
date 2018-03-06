@@ -21,7 +21,7 @@ class Sys extends Controller {
 			if(!$this->syModel->chckDuplicate($data['year_start'])){
 
 			if($this->syModel->add($data)){
-				die('added');
+				redirect('Sys/syList');
 			}else {
 				$this->view('sys/addSchoolYear');
 			}

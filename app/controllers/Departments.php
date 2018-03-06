@@ -17,7 +17,7 @@ class Departments extends Controller {
 			];
 
 			if($this->departmentModel->add($data)){
-				die('added');
+				redirect('departments/deptList');
 			}else {
 				$this->view('departments/add');
 			}

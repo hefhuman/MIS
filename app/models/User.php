@@ -15,13 +15,16 @@ class User {
 
 		$hashed_password = $row->password;
 
-		if((password_verify($password, $hashed_password) || $password == $hashed_password) && $row->account_type == 'Administrator'){
+		if((password_verify($password, $hashed_password) || $password == $hashed_password) && $row->account_type == 'MIS Admin'){
 			return $row;
 		}elseif(password_verify($password, $hashed_password) || $password == $hashed_password && $row->account_type == 'Admin Registrar'){
-			echo '<script> window.location.href="google.com"; </script>';
+			header('location: http://169.254.231.4:8080/mis');
+			echo '<script> window.location.href="169.254.231.4:8080/mis"; </script>';
 		}elseif(password_verify($password,$hashed_password) || $password == $hashed_password && $row->account_type == 'Admin Accounting'){
+			header('location: http://169.254.231.4:8080/accounting');			
 			echo '<script> window.location.href="google.com"; </script>';
 		}elseif(password_verify($password, $hashed_password) || $password == $hashed_password && $row->account_type == 'Admin Scheduler'){
+			header('location: http://169.254.231.4/scheduling');
 			echo '<script> window.location.href="google.com"; </script>';
 		}
 	}

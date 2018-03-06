@@ -90,8 +90,9 @@ public function updatePersonnel($data){
 }
 
 public function accountCreated($id){
-		$this->db->query('UPDATE personnels SET hasAccount = :hasAccount');
+		$this->db->query('UPDATE personnels SET hasAccount = :hasAccount WHERE PersonnelID=:PersonnelID');
 
+		$this->db->bind(':PersonnelID' , $PersonnelID);
 		$this->db->bind(':hasAccount' , 'Yes');
 
 		if($this->db->execute()){

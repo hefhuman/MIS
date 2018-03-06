@@ -18,7 +18,7 @@ class Facilities extends Controller {
 			];
 
 			if($this->facilityModel->add($data)){
-				die('added');
+				redirect('facilities/facilList');
 			}else {
 				$this->view('facilities/addFacilities');
 			}

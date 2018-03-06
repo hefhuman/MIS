@@ -23,7 +23,7 @@ class Personnels extends Controller {
 			];
 
 			if($this->personnelModel->add($data)){
-				die('Added');
+				redirect('personnels/personnelList');
 			} else {
 				$this->view('personnels/add');
 			}

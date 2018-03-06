@@ -16,7 +16,7 @@ class AccountTypes extends Controller {
 			];
 
 			if($this->accountTypeModel->add($data)){
-				die('added');
+				redirect('accounttypes/atlist');
 			}else {
 				$this->view('accounttypes/addAccountType');
 			}

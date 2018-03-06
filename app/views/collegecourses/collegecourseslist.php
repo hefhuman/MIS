@@ -41,20 +41,24 @@
 </div>
 
 <div class="col mt-3 mr-5">
-<h3>List Of Account Type</h3>
+<h3>List Of Courses - College</h3>
 <div class=" container form-control">
 
 <table class="tbl">
   <tr>
-    <th>Account Name</th>
-    <th>Status</th> 
+    <th>Course</th>
+    <th>Course Description</th>
+    <th>Department</th> 
+    <th>Status</th>
     <th>Actions</th>
   </tr>
   
-  <?php foreach($data['accountType'] as $at): ?>
+  <?php foreach($data['collegeCourses'] as $cC): ?>
     <tr>
-      <td><?php echo $at->account_type; ?></td>
-      <td><?php echo $at->switch; ?></td>
+      <td><?php echo $cC->CourseID; ?></td>
+      <td><?php echo $cC->CourseDesc; ?></td>
+      <td><?php echo $cC->DepartmentCode; ?></td>
+      <td><?php echo $cC->switch; ?></td>
       <td>
         <div class="btn-group dropright">
   <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -63,21 +67,21 @@
   <div class="dropdown-menu">
   
   <!-- if status is inactive then it change the text -->
-  <?php if($at->switch == 'Inactive'): ?>
+  <?php if($cC->switch == 'Inactive'): ?>
 
 
-   <a class="dropdown-item" href="<?php echo URLROOT;?>/accounttypes/enable/<?php echo $at->id ?>">Enable</a>
+   <a class="dropdown-item" href="<?php echo URLROOT;?>/collegecourses/enable/<?php echo $cC->CourseID; ?>">Enable</a>
 
 
 <!-- if status is inactive then it change the text -->
   <?php else: ?>
 
-  <a class="dropdown-item" href="<?php echo URLROOT;?>/accounttypes/disable/<?php echo $at->id ?>">Disable</a>
+  <a class="dropdown-item" href="<?php echo URLROOT;?>/collegecourses/disable/<?php echo $cC->CourseID; ?>">Disable</a>
 
 <!-- if status is inactive then it change the text -->
   <?php endif; ?>
 
-   <a class="dropdown-item" href="<?php echo URLROOT;?>/accounttypes/update/<?php echo $at->id ?>">Update</a>
+   <a class="dropdown-item" href="<?php echo URLROOT;?>/collegecourses/update/<?php echo $cC->id; ?>">Update</a>
 
   </div>
 </div>
